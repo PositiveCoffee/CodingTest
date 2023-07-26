@@ -13,16 +13,11 @@ public class if2525 {
         int min = Integer.parseInt(st.nextToken());
         int cook = Integer.parseInt(br.readLine());
 
-        if(min+cook<60){
-            System.out.println(hour+ " " +(min+cook));
-        }else{
-            int overTime = (min+cook)/60 ;
-            if(hour+overTime>=24){
-                System.out.println(hour+overTime-24 + " " + (min+cook)%60 );
-            }else{
-                System.out.println(hour+overTime + " " + (min+cook)%60);
-            }
-        }
+        int totalMinutes = hour * 60 + min + cook;
+        int newHour = totalMinutes / 60 % 24;
+        int newMin = totalMinutes % 60;
+
+        System.out.println(newHour + " " + newMin);
 
     }
 }
